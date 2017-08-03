@@ -3,7 +3,7 @@ package models
 import (
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
-	"path/to/your/app/config"
+	"github.com/stephenafamo/what-to-do/config"
 )
 
 var DB, _ = gorm.Open("mysql", config.GetS("dbconfig"))

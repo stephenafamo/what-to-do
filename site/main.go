@@ -2,7 +2,7 @@ package main
 
 import (
 	"net/http"
-	"path/to/your/app/models"
+	"github.com/stephenafamo/what-to-do/models"
 )
 
 func main() {
