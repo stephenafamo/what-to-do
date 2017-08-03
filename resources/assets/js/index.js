@@ -33,12 +33,12 @@ function addToList(json) {
     disabled = "disabled"
   }
 
+                //<button type="button" id="editTask'+ json.ID +'" class="btn btn-default" onclick="editTask('+ json.ID +')">Edit</button>\
   data = '\
           <tr id="task'+ json.ID +'" class="'+ taskClass +'">\
             <td>' + json.Title +'</td>\
             <td>\
               <div class="btn-group">\
-                <button type="button" id="editTask'+ json.ID +'" class="btn btn-default" onclick="editTask('+ json.ID +')">Edit</button>\
                 <button type="button" id="completeTask'+ json.ID +'" class="btn btn-success" onclick="completeTask('+ json.ID +')" '+ disabled +'>Done</button>\
                 <button type="button" id="deleteTask'+ json.ID +'" class="btn btn-danger" onclick="deleteTask('+ json.ID +')">Delete</button>\
               </div></td>\
