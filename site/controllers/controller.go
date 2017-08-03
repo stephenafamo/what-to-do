@@ -19,6 +19,7 @@ func init() {
 	controllers["Controller"] = reflect.TypeOf(Controller{})
 	controllers["IndexController"] = reflect.TypeOf(IndexController{})
 	controllers["AssetController"] = reflect.TypeOf(AssetController{})
+	controllers["TodoController"] = reflect.TypeOf(TodoController{})
 }
 
 func (c *Controller) Render(w http.ResponseWriter, templateName string, p interface{}) {

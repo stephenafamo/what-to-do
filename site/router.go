@@ -7,18 +7,11 @@ import (
 	"reflect"
 )
 
-func customRouter() *stephenRouter {
-	muxRouter := mux.NewRouter()
-	router := new(stephenRouter)
-	router.Router = *muxRouter.StrictSlash(true)
-	return router
+type stephenRouter interface {
+	HandleFunc(path string, f func(http.ResponseWriter, *http.Request)) *mux.Route
 }
 
-type stephenRouter struct {
-	mux.Router
-}
-
-func (c *stephenRouter) handler(path string, controllerName string, method string) {
+func handler(c stephenRouter, path string, controllerName string, method string) {
 	theController := reflect.New(controller.Get(controllerName))
 	theMethod := theController.MethodByName(method)
 	c.HandleFunc(path, func(w http.ResponseWriter, r *http.Request) {

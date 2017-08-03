@@ -1,9 +1,14 @@
 package main
 
-func routes(router *stephenRouter) *stephenRouter {
+import (
+	"github.com/gorilla/mux"
+)
 
-	router.handler("/", "IndexController", "Index")
-	router.handler(`/assets/{path:[a-zA-Z0-9=\-\/.]+}`, "AssetController", "Index")
+func routes(router *mux.Router) *mux.Router {
+
+	handler( router, "/", "IndexController", "Index")
+	handler( router, "/add-todo", "TodoController", "Add")
+	handler( router, `/assets/{path:[a-zA-Z0-9=\-\/.]+}`, "AssetController", "Index")
 
 	return router
 }

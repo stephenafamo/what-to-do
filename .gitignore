@@ -1,3 +1,5 @@
 .env
+src/
+logs/
 rebuild.sh
 site/main_test.go

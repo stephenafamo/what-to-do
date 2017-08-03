@@ -1,7 +1,38 @@
 {{define "index"}}
 	{{ template "header" . }}
+		<div class="jumbotron text-center">
+		  <h1>My First Bootstrap Page</h1>
+		  <h2>My To Do List</h2>
+		  <p>Resize this responsive page to see the effect!</p> 
+		</div>
+		<div id="myDIV" class="container">
+		  <form class="form-inline" id="addTodo" onsubmit="return false; addToDo(e); ">
+			  <div class="form-group">
+			    <label for="email">Add:</label>
+					<input type="text" id="myInput" name="title" class="form-control" required>
+				  <button type="submit" class="btn btn-primary">Add</button>
+			  </div>
+		  </form>
 
-		Hello world! My name is Stephen
+			<table class="table table-hover table-bordered">
+		    <thead>
+		      <tr>
+		        <th>Title</th>
+		        <th>Actions</th>
+		      </tr>
+		    </thead>
+		    <tbody id="listBody">
+		    </tbody>
+		  </table>
+		</div>
+
+		<script type="text/javascript">
+			$(document).ready(function() { 
+				var todoList = {{ .Data }}
+				todoList.forEach( function(element){addToList(element)})
+				$("#addTodo").submit(function(evt){addToDo(evt)})
+			})
+		</script>
 
 	{{ template "footer" . }}
 {{end}}

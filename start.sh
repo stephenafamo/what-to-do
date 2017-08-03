@@ -12,5 +12,7 @@ docker run -d -t \
     --name=$appName \
     -v "$PWD"/site:/go/src/"$appPath" \
     -v "$PWD"/resources:"$resourcesPath" \
+    -v "$PWD"/src:/go/src \
+    -v "$PWD"/logs:/var/log/http \
     -w /go/src/"$appPath" \
     $appName

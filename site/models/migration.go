@@ -10,5 +10,5 @@ var DB, _ = gorm.Open("mysql", config.GetS("dbconfig"))
 
 func init() {
 	DB.SingularTable(true)
-	DB.AutoMigrate(&User{})
+	DB.AutoMigrate(&Todo{})
 }

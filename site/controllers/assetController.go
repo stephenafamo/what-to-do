@@ -3,6 +3,7 @@ package controller
 import (
 	"net/http"
 	"path"
+	"github.com/stephenafamo/what-to-do/config"
 )
 
 type AssetController struct {
@@ -10,7 +11,7 @@ type AssetController struct {
 }
 
 func (a *AssetController) Index(w http.ResponseWriter, r *http.Request, p interface{}) {
-	AssetBaseFolder := "/go/src/github.com/stephenafamo/site/assets"
+	AssetBaseFolder := config.GetS("AssetBaseFolder")
 	vars := a.GetVars(r)
 	if _, ok := vars["path"]; ok != true{
 		http.NotFound(w, r )
